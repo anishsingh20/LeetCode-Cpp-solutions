@@ -1,18 +1,41 @@
 vector<int> twoSum(vector<int>& nums, int target) {
         
-        int sum = 0;
-        vector<int> v;
-        
-        for(int i = 0 ; i < nums.size(); i++)
+        for(int i = 0 ;  i < nums.size() ; i++)
         {
-            sum = nums[i] + nums[i+1];
-            
-            if(sum==target)
+            for(int j = i + 1 ; j < nums.size(); j++)
             {
-                v.push_back(i);
-                v.push_back(i+1);
-                
+                if(nums[i]+ nums[j]==target)
+                {
+                    return {i,j};
                 }
-        } 
-        return v;
+            }
+        }
     }
+//Time complexity = O(n*n)
+
+//solution 2-Using a hash map
+
+vector<int> twoSum(vector<int>& nums, int target) 
+    {
+        
+       unordered_map<int,int> um; 
+       for(int i=0 ; i < nums.size() ; i++)
+       {
+           int comp = target - nums[i];
+           auto found = um.find(comp);
+           if(found == um.end())
+           {
+               um.insert(make_pair(nums[i],i));          
+           }
+           else
+           {
+               
+               return {found->second,i};
+           }
+               
+           
+       }
+       
+        
+    }
+//Time complexity = O(n)
