@@ -32,3 +32,10 @@ int loop = 5;
         return n;  
         
     }
+
+//another solution in C- C language is faster than cpp
+int addDigits(int num) {
+    
+    return 1 + (num-1) % 9;
+    
+}
