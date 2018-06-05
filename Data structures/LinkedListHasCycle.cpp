@@ -54,3 +54,28 @@ bool hasCycle(struct ListNode *head) {
     
     return true;
 }
+
+
+//Method 3 using a hash map/Set in c++
+bool hasCycleMap(ListNode *head)
+{
+	set<ListNode *>map;
+	
+	while(head)
+	{
+		
+		//if a cycle found, if a previous visited node is found
+		if(map.find(head)!= map.end())
+		{
+			
+			return true;
+		}
+		
+		//otherwise simply push inside the map
+		map.insert(head);
+		head = head->next;
+	}
+	
+	return false;
+}
+
