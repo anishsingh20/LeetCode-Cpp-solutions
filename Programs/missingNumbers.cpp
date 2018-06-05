@@ -1,3 +1,16 @@
+//another fastest solution 
+int missingNumber(int* nums, int numsSize) {
+ int n  = nums.size();
+        int sum = 0;
+        for (auto n: nums) 
+        {
+            sum += n;
+        }
+        return (n + 1) * n / 2 - sum;
+
+}
+
+
 //C program to find the missing number using qsort function
 int compare_ints (const int *a, const int *b)
 {
