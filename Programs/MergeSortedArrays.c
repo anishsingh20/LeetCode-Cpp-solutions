@@ -1,5 +1,7 @@
 void merge(int* nums1, int m, int* nums2, int n) {
     
+    //implementing reverse of merge sort i.e starting from the last index and making changes in the same array itself.
+    //and merging 2 arrays into one.
     
     int i = m-1;
         int j = n-1;
