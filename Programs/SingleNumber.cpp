@@ -1,3 +1,14 @@
+//most optimal method which takes least runtime- using XOR of vector elements to find number occuring only once
+int singleNumber(vector<int>& nums) {
+int result = 0;
+        for(auto num : nums)
+        {
+            result ^= num;
+        }       
+        return result;
+        
+}
+
 //method-1 Optimal solution- linear time algorithm and constant space.
 int singleNumber(vector<int>& nums) {
         
