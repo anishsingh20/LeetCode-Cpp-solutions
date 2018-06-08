@@ -1,3 +1,11 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
 struct ListNode* reverseList(struct ListNode *head) {
         
     if(!head) return NULL;
@@ -26,19 +34,24 @@ struct ListNode* reverseList(struct ListNode *head) {
             return true;
         struct ListNode* slow=head;
         struct ListNode* fast=head;
-        while(fast->next!=NULL&&fast->next->next!=NULL){
+        
+        while(fast && fast->next && fast->next->next){
             slow=slow->next;
             fast=fast->next->next;
         }
         
-        slow->next=reverseList(slow->next);//reversing the next half of list
-        slow=slow->next;//slow now points to the element next to mid
-        while(slow!=NULL){
-            if(head->val!=slow->val)
+        //when fast becomes NULL, then slow is the middle of list
+        
+        struct ListNode *mid = reverseList(slow->next);//reversing the next half of list after the middle of list
+        
+        slow->next=NULL;//making the last mode of first half NULL
+        
+        //now comparing the 2 halves
+        while(mid!=NULL){
+            if(head->val!=mid->val)
                 return false;
             head=head->next;
-            slow=slow->next;
+            mid=mid->next;
         }
         return true;
 }
-//T(n) = O(n) and S(n) = O(1)
