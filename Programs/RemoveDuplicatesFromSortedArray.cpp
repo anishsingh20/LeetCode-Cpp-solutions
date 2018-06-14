@@ -1,4 +1,10 @@
-//Method-2)Not efficient and not in-place as consumes O(n) extra memory due to using set in cpp
+/*Method-2)Not efficient and not in-place as consumes O(n) extra memory due to using set in cpp-
+1)Store all items of the array in a set.
+2) A set in cpp is implemented using red-black trees. A set stores unique items in an ordered manner.
+3)All operations in a set are guranteed to take O(logn) time.
+4) now copy back the unique items of set to the original array.
+*/
+
  int removeDuplicates(vector<int>& nums) {
         
         set<int>s;
