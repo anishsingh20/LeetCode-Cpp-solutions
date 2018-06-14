@@ -18,6 +18,25 @@ int removeDuplicates(vector<int>& nums) {
     }
 
 
+//another similar method-
+ int removeDuplicates(vector<int>& nums) {
+        
+
+        if (nums.size() < 1)
+            return 0;
+        
+        int count = 1;
+        for (int i = 1; i < nums.size(); ++i) {
+            if (nums[i] != nums[i-1])
+                nums[count++] = nums[i];
+        }
+        
+        
+        return count;
+    
+ 
+    }
+
 
 /*Method-2)Not efficient and not in-place as consumes O(n) extra memory due to using set in cpp-
 1)Store all items of the array in a set.
