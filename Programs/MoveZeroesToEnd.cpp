@@ -10,3 +10,16 @@ void moveZeroes(vector<int>& nums) {
      
            
     }
+
+
+//Method-3 Using 2 loops and comapring each item- Inefficient consumes O(n*n) time
+for(int i = 0 ;  i < nums.size() ; ++i)
+        {
+            for(int j = i+1 ; j < nums.size(); j++)
+            {
+                if(nums[i]==0 && nums[j]!= 0)
+                {
+                    swap(nums[i],nums[j]);
+                }
+            }
+        }
