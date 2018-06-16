@@ -11,6 +11,30 @@ void moveZeroes(vector<int>& nums) {
            
     }
 
+//Method-2) Most efficient solution which beats 99% of runtime.O(n) time 
+void moveZeroes(vector<int>& nums) {
+        
+      
+      int countNon = 0 ;
+        for(int i = 0 ; i < nums.size() ; ++i)
+        {
+            if(nums[i]!=0)
+            {
+                nums[countNon++] = nums[i];
+            }
+        }
+        
+        //countNon is the count of non zeros
+        
+        //now we simply add 0s to end
+        for(; countzero<nums.size(); countzero++)
+        {
+            nums[countzero] = 0;
+        }
+        
+        
+           
+    }
 
 //Method-3 Using 2 loops and comapring each item- Inefficient consumes O(n*n) time
 for(int i = 0 ;  i < nums.size() ; ++i)
