@@ -16,3 +16,30 @@ int subarraySum(vector<int>& nums, int k) {
         
         return count;
     }
+
+//method-1 Most efficient T(n) = O(n) using a hash map to store sum and their frequencies
+int subarraySum(vector<int>& nums, int k) {
+      
+      unordered_map<int,int> s;
+        
+        int count = 0;
+        int sum = 0 ;
+        
+        s[0] = 1;
+        for(int i = 0 ; i < nums.size(); i++)
+        {
+            sum += nums[i];
+            auto f = s.find(sum-k);
+            if(f != s.end())    
+            {
+                count += f->second;
+            }
+            
+            ++s[sum];
+
+          
+        }
+        
+        return count;
+      
+    }
