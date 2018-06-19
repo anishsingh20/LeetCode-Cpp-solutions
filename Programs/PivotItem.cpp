@@ -47,3 +47,20 @@ int pivotIndex(vector<int>& nums) {
         return -1;
         
     }
+
+//another optimal solution similar to the above one to find Pivot
+int pivotIndex(vector<int>& nums) {
+        int rightSum = 0;
+        for(int i = 0;i<nums.size();i++){
+            rightSum += nums[i];
+        }
+        int leftSum = 0;
+        for(int i = 0;i<nums.size();i++){
+            leftSum += nums[i];
+            if(leftSum == rightSum){
+                return i;
+            }
+            rightSum -= nums[i];
+        }
+        return -1;
+    }
