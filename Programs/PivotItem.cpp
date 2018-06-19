@@ -18,3 +18,32 @@
         return -1;
         
     }
+
+
+//another solution to find pivot index
+int pivotIndex(vector<int>& nums) {
+        
+        int sumr = 0;
+        
+        for(int i = 0 ; i < nums.size() ; i++)
+        {
+            sumr += nums[i];
+        }
+        
+        int suml = 0;
+        for(int i = 0 ; i < nums.size() ; i++)
+        {
+            suml += nums[i];
+            sumr -= nums[i];
+            
+            if(suml-nums[i] == sumr)
+            {
+                return i;
+            }
+            
+            
+        }
+        
+        return -1;
+        
+    }
