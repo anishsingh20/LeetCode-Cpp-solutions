@@ -1,3 +1,19 @@
+//simple iterative O(n) solution to find max Sum of continious subarray
+    int maxSubArray(vector<int>& nums) {
+        
+        int curSum = nums[0]; 
+        int resSum = nums[0];
+        
+        for(int i = 1 ; i < nums.size();i++)
+        {
+            curSum = max(nums[i],nums[i]+curSum);
+            resSum = max(resSum,curSum);
+        }
+       
+        return resSum;
+    }
+
+
 //Divide and conquer solution to find maximum sum subarray-T(n) = O(nlogn), space = O(n) or height of recursion tree
 int Max(int a,int b , int c)
 {
