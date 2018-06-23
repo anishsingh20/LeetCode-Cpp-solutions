@@ -1,3 +1,46 @@
+//solution using DP- handles all cases-negetive elements in array too-
+int maxSubArray(vector<int>& nums) {
+
+        int size = nums.size();
+        int dp[size];
+        
+        
+        //not for all negetive items in array eg-[-2,-1]
+        // if(nums[0] > 0) dp[0] = nums[0];
+        // else dp[0] = 0;
+        
+        dp[0] = nums[0];
+        
+        int resSum = INT_MIN;
+        
+        if(size==1) return nums[0];
+
+        for(int i = 1; i < nums.size();i++)
+        {
+//             if(nums[i] + dp[i-1] > 0)
+//                 dp[i] = dp[i-1] + nums[i];
+            
+//             else dp[i] = 0;
+            dp[i] = nums[i] + (dp[i-1] > 0 ? dp[i-1] : 0);
+            
+        }
+        
+        
+        for(int i = 0 ; i < size ; i++)
+        {
+
+            if(dp[i]  > resSum)
+                resSum = dp[i];
+        }
+
+        return resSum;
+      
+        
+        
+}
+
+
+
 //simple iterative O(n) solution to find max Sum of continious subarray
     int maxSubArray(vector<int>& nums) {
         
