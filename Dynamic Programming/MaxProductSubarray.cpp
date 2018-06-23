@@ -48,3 +48,25 @@ int maxProduct(vector<int>& nums) {
         
         return res;
 }
+
+
+//Method-3 )iterative-inefficient O(n*n), S(n) = O(1) ,using 2 loops
+int maxProduct(vector<int>& nums) {
+
+       int maxPro = nums[0]; 
+        
+        for(int i = 0 ; i < nums.size() ; i++)
+        {
+            int curPro = 1 ;
+            for(int j = i ; j  < nums.size();j++)
+            {
+                curPro *= nums[j];
+                
+                if(curPro > maxPro)
+                        maxPro = curPro;
+            }
+        }
+        
+        return maxPro;
+}
+
