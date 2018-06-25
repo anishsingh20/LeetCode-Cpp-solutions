@@ -19,3 +19,4 @@ int numSubarrayProductLessThanK(int* nums, int numsSize, int k) {
         return count;
     
 }
+//T(n) = O(n) and constant space.
