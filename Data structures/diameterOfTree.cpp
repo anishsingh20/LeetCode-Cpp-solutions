@@ -1,4 +1,27 @@
 //another optimal method to find diameter using the fact that diameter is simply the max(left_ht + right_ht + 1) for each node
+int height(TreeNode *root,int &ans)
+{
+    if(!root) return 0;
+    
+    int lht = height(root->left,ans);
+    int rht = height(root->right,ans);
+    
+    //finding the diameter ie max of left_ht + right_ht for each node
+    ans = max(ans,lht+rht);
+    
+    //return the height of tree
+    return 1+max(lht,rht);
+}
+    int diameterOfBinaryTree(TreeNode* root) {
+        
+        if(!root) return 0;
+        int ans = INT_MIN;
+        
+        int ht = height(root,ans);
+        
+        return ans;
+        
+    }
 
 //O(n) solution i.e calculating height in the function itself-
 int diaUtil(TreeNode *root,int *height)
