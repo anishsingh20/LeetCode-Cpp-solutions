@@ -1,3 +1,5 @@
+//another optimal method to find diameter using the fact that diameter is simply the max(left_ht + right_ht + 1) for each node
+
 //O(n) solution i.e calculating height in the function itself-
 int diaUtil(TreeNode *root,int *height)
     {
